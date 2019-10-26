@@ -49,6 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'BeritaController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+$route['pengirim'] = "PengirimController";
+$route['pengirim/create'] = "PengirimController/create";
+$route['pengirim/store'] = "PengirimController/store";
+$route['pengirim/edit/(:any)'] = "PengirimController/edit/$1";
+$route['pengirim/update/(:any)']['put'] = "PengirimController/update/$1";
+$route['pengirim/delete/(:any)'] = "PengirimController/destroy/$1";
+// $route['pengirim/delete/(:any)']['delete'] = "PengirimController/destroy/$1";
+
+$route['admin/create']['get'] = "BeritaController/create";
+$route['admin/store']['post'] = "BeritaController/store";
+$route['admin/edit/(:any)'] = "BeritaController/edit/$1";
+$route['admin/update/(:any)']['put'] = "BeritaController/update/$1";
+$route['admin/delete/(:any)'] = "BeritaController/destroy/$1";
+
+$route['kategori/create'] = "KategoriController/create";
+$route['kategori/store'] = "KategoriController/store";
