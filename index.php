@@ -36,6 +36,10 @@
  * @filesource
  */
 
+ ////COMPOSER AUTOLOAD
+$composer_vendor_path = '../berita/vendor';
+require_once $composer_vendor_path . '/autoload.php';
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

@@ -53,20 +53,26 @@ $route['default_controller'] = 'BeritaController';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['admin/berita']['get'] = "BeritaController/admin_index";
+$route['admin/berita/store']['post'] = "BeritaController/store";
+$route['admin/berita/update/(:any)'] = "BeritaController/update/$1";
+$route['admin/berita/delete/(:any)'] = "BeritaController/destroy/$1";
+$route['admin/get_berita/(:any)/(:any)'] = "BeritaController/get_berita_by/$1/$2";
+$route['admin/get_berita_by_date/(:any)'] = "BeritaController/get_berita_by_date/$1";
 
-$route['pengirim'] = "PengirimController";
-$route['pengirim/create'] = "PengirimController/create";
-$route['pengirim/store'] = "PengirimController/store";
-$route['pengirim/edit/(:any)'] = "PengirimController/edit/$1";
-$route['pengirim/update/(:any)']['put'] = "PengirimController/update/$1";
-$route['pengirim/delete/(:any)'] = "PengirimController/destroy/$1";
-// $route['pengirim/delete/(:any)']['delete'] = "PengirimController/destroy/$1";
+$route['admin/pengirim']['get'] = "PengirimController/index";
+$route['admin/pengirim/store']['post'] = "PengirimController/store";
+$route['admin/pengirim/update/(:any)'] = "PengirimController/update/$1";
+$route['admin/pengirim/delete/(:any)'] = "PengirimController/destroy/$1";
 
-$route['admin/create']['get'] = "BeritaController/create";
-$route['admin/store']['post'] = "BeritaController/store";
-$route['admin/edit/(:any)'] = "BeritaController/edit/$1";
-$route['admin/update/(:any)']['put'] = "BeritaController/update/$1";
-$route['admin/delete/(:any)'] = "BeritaController/destroy/$1";
+$route['admin/kategori']['get'] = "KategoriController/index";
+$route['admin/kategori/store']['post'] = "KategoriController/store";
+$route['admin/kategori/update/(:any)'] = "KategoriController/update/$1";
+$route['admin/kategori/delete/(:any)'] = "KategoriController/destroy/$1";
 
-$route['kategori/create'] = "KategoriController/create";
-$route['kategori/store'] = "KategoriController/store";
+
+$route['session'] = "BeritaController/lihat_session";
+
+
+//route untuk detail berita
+$route['(:any)']['get'] = "BeritaController/index/$1";

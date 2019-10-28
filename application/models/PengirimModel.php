@@ -45,7 +45,7 @@ class PengirimModel extends CI_Model
     {
         $query = $this->db->get_where($this->tablename, array('id' => $id));
         if($query!=null){
-            return $query->result();
+            return $query->row();
         }else{
             return false;
         }
@@ -70,6 +70,25 @@ class PengirimModel extends CI_Model
         } else {
             return false;
         }
+    }
+
+
+    public function get_p_punya_berita()
+    {
+        $array_pengirim = array();
+        foreach($this->punya_berita() as $value){
+            $query = $this->db->get_where($this->tablename, array('id' => $value->id_pengirim));
+            array_push($array_pengirim, $query->row());
+        }
+
+        return $array_pengirim;
+    }
+
+    public function punya_berita(){
+        $this->db->distinct();
+        $this->db->select('id_pengirim');
+        $this->db->from('berita');
+        return $this->db->get()->result();
     }
 
 }

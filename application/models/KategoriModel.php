@@ -63,4 +63,23 @@ class KategoriModel extends CI_Model
             return false;
         }
     }
+
+    public function get_k_punya_berita()
+    {
+        $array_kategori = array();
+        foreach ($this->punya_berita() as $value) {
+            $query = $this->db->get_where($this->tablename, array('id' => $value->id_kategori));
+            array_push($array_kategori, $query->row());
+        }
+
+        return $array_kategori;
+    }
+
+    public function punya_berita()
+    {
+        $this->db->distinct();
+        $this->db->select('id_kategori');
+        $this->db->from('berita');
+        return $this->db->get()->result();
+    }
 }

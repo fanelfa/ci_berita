@@ -63,11 +63,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <ul class="main-menu-m">
                     <li>
-                        <a href="index.html">Kategori</a>
+                        <a href="index.html">Menu</a>
                         <ul class="sub-menu-m">
-                            <li><a href="index.html">Homepage v1</a></li>
-                            <li><a href="home-02.html">Homepage v2</a></li>
-                            <li><a href="home-03.html">Homepage v3</a></li>
+                            <li><a href="/berita">Berita</a></li>
+                            <li><a href="admin/berita">Admin</a></li>
                         </ul>
 
                         <span class="arrow-main-menu-m">
@@ -96,19 +95,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                         <ul class="main-menu">
                             <li class="main-menu-active">
-                                <a href="index.html">Kategori</a>
+                                <a href="#">Menu</a>
                                 <ul class="sub-menu">
-                                    <li><a href="index.html">Homepage v1</a></li>
-                                    <li><a href="home-02.html">Homepage v2</a></li>
-                                    <li><a href="home-03.html">Homepage v3</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#">Admin</a>
-                                <ul class="sub-menu">
-                                    <li><a href="admin/create">Tambah Berita</a></li>
-                                    <li><a href="home-02.html">Homepage v2</a></li>
-                                    <li><a href="home-03.html">Homepage v3</a></li>
+                                    <li><a href="/berita">Berita</a></li>
+                                    <li><a href="admin/berita">Admin</a></li>
                                 </ul>
                             </li>
                         </ul>

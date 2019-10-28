@@ -7,18 +7,16 @@ class PengirimController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->helper('url');
+        $this->load->helper(array('form', 'url'));
         $this->load->model('PengirimModel');
         $this->asset = base_url()."asset/";
     }
 
     public function index()
-    {
-        // echo "<b>index pengirim</b>";
-        // echo $this->asset;
-        
+    {        
         $p = $this->PengirimModel;
-        print_r($p->read());
+        $data['pengirim'] = $p->read();
+        $this->load->view('admin/pengirim/index', $data);
     }
 
     public function create()
@@ -29,13 +27,13 @@ class PengirimController extends CI_Controller
     public function store()
     {
         $data = array(
-            'nama' => 'Fandi Ilham',
-            'bio' => 'Cah Ndeso',
+            'nama' => $this->input->post('nama'),
+            'bio' => $this->input->post('bio'),
         );
 
         $p = $this->PengirimModel;
         if ($p->create($data)) {
-            echo 'Sukses';
+            redirect('/admin/pengirim/', 'refresh');
         } else {
             echo 'Gagal create data';
         }
@@ -53,16 +51,27 @@ class PengirimController extends CI_Controller
 
     public function update($id)
     {
+        $data = array(
+            'nama' => $this->input->post('nama'),
+            'bio' => $this->input->post('bio'),
+        );
 
+        $p = $this->PengirimModel;
+        if ($p->update($this->input->post('id'), $data)) {
+            redirect('/admin/pengirim/', 'refresh');
+        } else {
+            echo 'Gagal create data';
+        }
     }
 
     public function destroy($id)
     {
-        if($this->PengirimModel->delete($id)){
-            echo 'Deleted!';
+        if($this->PengirimModel->delete($this->input->post('id'))){
+            redirect('/admin/pengirim/', 'refresh');
         }else{
             echo 'Gagal delete';
         }
     }
+
 
 }
